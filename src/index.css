@@ -4,6 +4,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
 
-body {
-    font-family: 'Racing Sans One', cursive;
+.leaflet-container{
+    width: 500px;
+    height: 780px;
+    /* width: 100vw;
+    height: 100vh; */
 }
+
+/* body {
+    font-family: 'Racing Sans One', cursive;
+} */
