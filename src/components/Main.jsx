@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Icon } from '@iconify/react';
 import map from '../Images/map.jpg'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 // import { MapContainer } from 'react-leaflet';
 // import { TileLayer } from 'leaflet';
 // import { Marker } from 'react-leaflet';
@@ -15,6 +15,27 @@ const Main = () => {
   const handleClick = () => {
     setIsActive(current => !current);
   };
+
+  function LocationMarker() {
+    const [position, setPosition] = useState(null)
+    const map = useMapEvents({
+      click() {
+        map.locate()
+      },
+      locationfound(e) {
+        setPosition(e.latlng)
+        map.flyTo(e.latlng, map.getZoom())
+      },
+    })
+  
+    return position === null ? null : (
+      <Marker position={position}>
+        <Popup>You are here</Popup>
+      </Marker>
+    )
+  }
+  
+
 
   return (
     <div className='flex h-[100vh]'>
@@ -100,6 +121,7 @@ const Main = () => {
                 Hole 9
               </Popup>
             </Marker>
+            <LocationMarker/>
           </MapContainer>         
       </div>
     </div>

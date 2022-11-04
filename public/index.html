@@ -23,6 +23,27 @@
      crossorigin="">
     </script>
 
+    <!-- <script>
+      if(!navigator.geolocation){
+        console.log("The browser does not support live geolocation")
+      }else{
+        navigator.geolocation.getCurrentPosition(getPosition)
+      }
+
+      function getPosition(position){
+        var latitude = position.coords.latitude
+        var longitude = position.coords.longitude
+        var accuracy = position.coords.accuracy
+
+        var marker = L.marker([latitude,longitude])
+        var circle = L.circle([latitude,longitude],{radius: accuracy})
+
+        var featureGroup = L.featureGroup([marker, circle]).addTo(map)
+
+        map.fitBounds(featureGroup.getBounds)
+      }
+    </script> -->
+
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
