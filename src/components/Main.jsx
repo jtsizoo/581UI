@@ -30,7 +30,7 @@ const Main = () => {
   
     return position === null ? null : (
       <Marker position={position}>
-        <Popup>You are here</Popup>
+        <Popup>Current Location</Popup>
       </Marker>
     )
   }
